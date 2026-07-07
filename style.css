@@ -7,6 +7,8 @@
   --accent: #3B82F6;
   --accent-2: #8B5CF6;
   --accent-soft: #eaf1fe;
+  --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --accent-gradient-v: linear-gradient(180deg, var(--accent), var(--accent-2));
   --shadow: 0 1px 2px rgba(17, 24, 39, 0.04), 0 8px 24px rgba(17, 24, 39, 0.06);
   --shadow-hover: 0 2px 4px rgba(17, 24, 39, 0.05), 0 16px 32px rgba(17, 24, 39, 0.1);
   --max-width: 800px;
@@ -75,6 +77,7 @@ header.site-header .wrap {
 
 nav.main-nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 
@@ -83,8 +86,8 @@ nav.main-nav a {
   color: var(--text-muted);
   font-size: 0.92rem;
   font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 999px;
+  padding: 6px 14px;
+  border-radius: 8px;
   transition: color 0.15s ease, background 0.15s ease;
 }
 
@@ -95,7 +98,8 @@ nav.main-nav a:hover {
 
 nav.main-nav a.active {
   color: #fff;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent-gradient);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 main {
@@ -139,7 +143,7 @@ h1 {
   height: 128px;
   border-radius: 50%;
   padding: 4px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent-gradient);
   box-shadow: var(--shadow);
 }
 
@@ -162,7 +166,7 @@ h1 {
 
 .hero-role {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -211,31 +215,6 @@ h1 {
   .edu-row .meta { text-align: left; }
 }
 
-.edu-row--stacked {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 10px;
-}
-
-.edu-row-top {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.edu-row-top .meta {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.edu-row--stacked .pill-row { margin-top: 0; }
-
-@media (max-width: 560px) {
-  .edu-row-top { flex-direction: column; gap: 2px; }
-  .edu-row-top .meta { text-align: left; }
-}
-
 /* Timeline (Experience page) */
 .timeline {
   position: relative;
@@ -267,7 +246,7 @@ h1 {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent-gradient);
   border: 2px solid var(--bg);
   box-shadow: 0 0 0 2px var(--accent);
 }
@@ -343,7 +322,7 @@ section h2::before {
   bottom: 2px;
   width: 4px;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  background: var(--accent-gradient-v);
 }
 
 .card {
@@ -400,58 +379,6 @@ section h2::before {
   font-weight: 600;
   padding: 4px 12px;
   border-radius: 999px;
-}
-
-.btn {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 40%, transparent);
-  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.btn:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 50%, transparent);
-}
-
-.btn.secondary {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.contact-list a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-
-.contact-list a:hover { color: var(--accent); }
-
-.contact-list .label {
-  display: block;
-  color: var(--text-muted);
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 2px;
 }
 
 footer.site-footer {
@@ -533,7 +460,7 @@ footer.site-footer .wrap {
 .icon-link:hover {
   border-color: transparent;
   color: #fff;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: var(--accent-gradient);
   transform: translateY(-2px);
 }
 

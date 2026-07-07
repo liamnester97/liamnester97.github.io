@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liamnester97.github.io/sitemap.xml
