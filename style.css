@@ -422,6 +422,17 @@ section h2::before {
   margin-bottom: 0;
 }
 
+.skills-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.skills-row {
+  margin-bottom: 32px;
+}
+
 .card-links {
   display: flex;
   gap: 16px;
