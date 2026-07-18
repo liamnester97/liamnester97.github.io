@@ -45,16 +45,23 @@
         <h2>AI Projects</h2>
 
         <div class="card">
-          <div class="card-thumb" aria-hidden="true"></div>
-          <h3>Agentic OS Dashboard</h3>
+          <video class="card-thumb" src="assets/images/projects/ai-brain-timelapse.mp4" autoplay muted loop playsinline></video>
+          <div class="card-thumb-row">
+            <img src="assets/images/projects/ai-brain-usage.png" alt="Agentic OS Dashboard header showing live AI usage and context stats" loading="lazy">
+            <img src="assets/images/projects/ai-brain-vault-map.png" alt="Vault Map view listing the AI Brain's folder structure" loading="lazy">
+            <img src="assets/images/projects/ai-brain-graph.png" alt="Knowledge graph visualization of the AI Brain vault" loading="lazy">
+          </div>
+          <h3>Agentic OS Dashboard + AI Brain</h3>
           <p class="meta">
-            <span class="pill pill--status">Private repo</span>
+            <span class="pill pill--status">Private repos</span>
           </p>
-          <p>A local-only dashboard that visualizes real data pulled from my Obsidian vault, Notion, and Strava &mdash; nothing on it is fabricated; every field traces back to a real source or is explicitly marked as deferred.</p>
+          <p>A local-only dashboard that visualizes real data pulled from my Obsidian vault, Notion, and Strava &mdash; nothing on it is fabricated; every field traces back to a real source or is explicitly marked as deferred. Underneath it is the Obsidian AI Brain itself: my primary durable AI knowledge and agent system, a plain-Markdown vault that stores context, decisions, and workflows, with AI agents (Claude Code, Codex) operating in it under explicit behavioral rules.</p>
           <ul>
             <li>Two tab groups: Productivity (To-Do, Notes, Overview, Activity Log, AI Brain graph, Vault Map, Skills) and Personal (Finance, Travel, Workout, House, Books)</li>
             <li>Reachable from my phone over Tailscale, no public exposure</li>
             <li>Allowlist-guarded skill-run endpoints and path-traversal-guarded file routes</li>
+            <li>Numbered vault folder taxonomy: Inbox &rarr; Command Center &rarr; Knowledge &rarr; Projects &rarr; Workflows &rarr; Logs &rarr; Archive &rarr; System</li>
+            <li>Self-auditing practice &mdash; e.g. a full line-by-line audit of 61 notes that caught and fixed real gaps</li>
             <li>Up next: driving CAD design generation (see CadQuery below) from the same dashboard</li>
           </ul>
           <div class="pill-row">
@@ -62,49 +69,33 @@
             <span class="pill">Flask</span>
             <span class="pill">HTML/CSS</span>
             <span class="pill">Tailscale</span>
+            <span class="pill">Markdown</span>
+            <span class="pill">Git</span>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-thumb" aria-hidden="true"></div>
+          <div class="card-thumb-row">
+            <img src="assets/images/projects/cadquery-bracket-manual.png" alt="Rendered STL of a manually optimized structural mounting bracket" loading="lazy">
+            <img src="assets/images/projects/cadquery-heatsink-radial.png" alt="Rendered STL of a radial-fin heat sink" loading="lazy">
+            <img src="assets/images/projects/cadquery-desk-clamp.png" alt="Rendered STL of a multi-function one-piece desk clamp" loading="lazy">
+            <img src="assets/images/projects/cadquery-tool-handle.png" alt="Rendered STL of an ergonomic tool handle" loading="lazy">
+          </div>
           <h3>CadQuery</h3>
           <p class="meta">
             <span class="pill pill--status">Private repo</span>
           </p>
-          <p>Parametric CAD scripting &mdash; building parts and assemblies with CadQuery's Python API, backed by a local reference manual for quick lookup while designing.</p>
+          <p>Parametric CAD scripting &mdash; building single-part mechanical designs with CadQuery's Python API, backed by a local reference manual for quick lookup while designing. Each project explores a different engineering problem: load paths, compliant mechanisms, thermal geometry, and ergonomics.</p>
           <ul>
-            <li>Scripted, reproducible parts and assemblies instead of manual CAD clicking</li>
-            <li>STL/STEP export for printing and downstream tooling</li>
-            <li>CQ-editor GUI workflow for iterating on designs</li>
-            <li>In-progress parts include a headphone stand and a milk crate</li>
+            <li>Structural bracket, in three iterations: basic, manually optimized, and AI-assisted topology</li>
+            <li>Multi-function one-piece desk clamp with integrated cable routing and grip features</li>
+            <li>Heat sink variants comparing straight, radial, pin-fin, and branching fin patterns</li>
+            <li>Ergonomic tool handle with finger-contour grip geometry, left and right variants</li>
+            <li>STL/STEP export for printing and downstream tooling, iterated via the CQ-editor GUI</li>
           </ul>
           <div class="pill-row">
             <span class="pill">Python</span>
             <span class="pill">CadQuery</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <video class="card-thumb" src="assets/images/projects/ai-brain-timelapse.mp4" autoplay muted loop playsinline></video>
-          <div class="card-thumb-row">
-            <img src="assets/images/projects/ai-brain-usage.png" alt="Agentic OS Dashboard header showing live AI usage and context stats" loading="lazy">
-            <img src="assets/images/projects/ai-brain-vault-map.png" alt="Vault Map view listing the AI Brain's folder structure" loading="lazy">
-            <img src="assets/images/projects/ai-brain-graph.png" alt="Knowledge graph visualization of the AI Brain vault" loading="lazy">
-          </div>
-          <h3>Obsidian AI Brain</h3>
-          <p class="meta">
-            <span class="pill pill--status">Private repo</span>
-          </p>
-          <p>My primary durable AI knowledge and agent system &mdash; a plain-Markdown vault that stores context, decisions, and workflows, with AI agents (Claude Code, Codex) operating in it under explicit behavioral rules.</p>
-          <ul>
-            <li>Numbered folder taxonomy: Inbox &rarr; Command Center &rarr; Knowledge &rarr; Projects &rarr; Workflows &rarr; Logs &rarr; Archive &rarr; System</li>
-            <li>Strict frontmatter and wikilink conventions, no Dataview/Templater dependency</li>
-            <li>Self-auditing practice &mdash; e.g. a full line-by-line audit of 61 notes that caught and fixed real gaps</li>
-            <li>Git-tracked for full history</li>
-          </ul>
-          <div class="pill-row">
-            <span class="pill">Markdown</span>
-            <span class="pill">Git</span>
           </div>
         </div>
 
