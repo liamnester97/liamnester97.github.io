@@ -426,6 +426,34 @@ section h2::before {
   margin-bottom: 0;
 }
 
+.card-thumb-box {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-thumb-box img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  display: block;
+}
+
+.card-thumb-row--boxed {
+  align-items: stretch;
+}
+
+.card-thumb-row--boxed .card-thumb-box {
+  flex: 1 1 0;
+  margin-bottom: 0;
+}
+
 .skills-label {
   color: var(--text-muted);
   font-size: 0.9rem;
