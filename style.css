@@ -400,6 +400,19 @@ section h2::before {
   margin-bottom: 16px;
   background: var(--accent-gradient);
   opacity: 0.85;
+  object-fit: cover;
+  display: block;
+}
+
+.card-thumb-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.card-thumb-row .card-thumb {
+  flex: 1;
+  margin-bottom: 0;
 }
 
 .card-links {
