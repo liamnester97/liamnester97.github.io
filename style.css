@@ -447,11 +447,25 @@ section h2::before {
 
 .card-thumb-row--boxed {
   align-items: stretch;
+  gap: 0;
 }
 
 .card-thumb-row--boxed .card-thumb-box {
   flex: 1 1 0;
   margin-bottom: 0;
+  border-radius: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.card-thumb-row--boxed .card-thumb-box:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.card-thumb-row--boxed .card-thumb-box:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-right: none;
 }
 
 .skills-label {
