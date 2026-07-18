@@ -442,6 +442,8 @@ section h2::before {
   max-width: 85%;
   max-height: 85%;
   object-fit: contain;
+  background: transparent;
+  border-radius: 0;
   display: block;
 }
 
