@@ -7,16 +7,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <title>Projects | Liam Nester</title>
-  <meta name="description" content="A portfolio of personal and side projects by Liam Nester. Coming soon." />
+  <meta name="description" content="A portfolio of personal and side projects by Liam Nester, including AI-driven tools and experiments." />
   <link rel="canonical" href="https://liamnester97.github.io/projects.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Projects | Liam Nester" />
-  <meta property="og:description" content="A portfolio of personal and side projects by Liam Nester. Coming soon." />
+  <meta property="og:description" content="A portfolio of personal and side projects by Liam Nester, including AI-driven tools and experiments." />
   <meta property="og:url" content="https://liamnester97.github.io/projects.html" />
   <meta property="og:image" content="https://liamnester97.github.io/assets/images/headshot.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Projects | Liam Nester" />
-  <meta name="twitter:description" content="A portfolio of personal and side projects by Liam Nester. Coming soon." />
+  <meta name="twitter:description" content="A portfolio of personal and side projects by Liam Nester, including AI-driven tools and experiments." />
   <meta name="twitter:image" content="https://liamnester97.github.io/assets/images/headshot.jpg" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
@@ -39,10 +39,117 @@
     <div class="wrap">
       <p class="eyebrow">Projects</p>
       <h1>Projects</h1>
-      <p class="lede">Coming soon: a portfolio of personal and side projects.</p>
+      <p class="lede">A portfolio of personal and side projects.</p>
 
       <section>
-        <h2>Coming soon</h2>
+        <h2>AI Projects</h2>
+
+        <div class="card">
+          <div class="card-thumb" aria-hidden="true"></div>
+          <h3>Agentic OS Dashboard</h3>
+          <p class="meta">
+            <span class="pill pill--status">Private repo</span>
+          </p>
+          <p>A local-only dashboard that visualizes real data pulled from my Obsidian vault, Notion, and Strava &mdash; nothing on it is fabricated; every field traces back to a real source or is explicitly marked as deferred.</p>
+          <ul>
+            <li>Two tab groups: Productivity (To-Do, Notes, Overview, Activity Log, AI Brain graph, Vault Map, Skills) and Personal (Finance, Travel, Workout, House, Books)</li>
+            <li>Reachable from my phone over Tailscale, no public exposure</li>
+            <li>Allowlist-guarded skill-run endpoints and path-traversal-guarded file routes</li>
+            <li>Up next: driving CAD design generation (see CadQuery below) from the same dashboard</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Python</span>
+            <span class="pill">Flask</span>
+            <span class="pill">HTML/CSS</span>
+            <span class="pill">Tailscale</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" aria-hidden="true"></div>
+          <h3>CadQuery</h3>
+          <p class="meta">
+            <span class="pill pill--status">Private repo</span>
+          </p>
+          <p>Parametric CAD scripting &mdash; building parts and assemblies with CadQuery's Python API, backed by a local reference manual for quick lookup while designing.</p>
+          <ul>
+            <li>Scripted, reproducible parts and assemblies instead of manual CAD clicking</li>
+            <li>STL/STEP export for printing and downstream tooling</li>
+            <li>CQ-editor GUI workflow for iterating on designs</li>
+            <li>In-progress parts include a headphone stand and a milk crate</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Python</span>
+            <span class="pill">CadQuery</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" aria-hidden="true"></div>
+          <h3>Obsidian AI Brain</h3>
+          <p class="meta">
+            <span class="pill pill--status">Private repo</span>
+          </p>
+          <p>My primary durable AI knowledge and agent system &mdash; a plain-Markdown vault that stores context, decisions, and workflows, with AI agents (Claude Code, Codex) operating in it under explicit behavioral rules.</p>
+          <ul>
+            <li>Numbered folder taxonomy: Inbox &rarr; Command Center &rarr; Knowledge &rarr; Projects &rarr; Workflows &rarr; Logs &rarr; Archive &rarr; System</li>
+            <li>Strict frontmatter and wikilink conventions, no Dataview/Templater dependency</li>
+            <li>Self-auditing practice &mdash; e.g. a full line-by-line audit of 61 notes that caught and fixed real gaps</li>
+            <li>Git-tracked for full history</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Markdown</span>
+            <span class="pill">Git</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" aria-hidden="true"></div>
+          <h3>Code Garden</h3>
+          <p class="meta">
+            <span class="pill pill--status pill--status-live">Live &mdash; OpenAI Build Week 2026</span>
+          </p>
+          <p>A living, playable ecosystem for understanding and tending codebases: functions are plants, dependencies are roots, test coverage is sunlight, bugs are pests, and dead code is decay. Built for the OpenAI Build Week Challenge 2026, Education track.</p>
+          <ul>
+            <li>Deterministic analysis engine parses a target repo into a typed HealthReport, then a pure projection maps it to a GardenScene</li>
+            <li>GPT-5.6 narrates and explains the garden in plain English</li>
+            <li>Codex performs real actions &mdash; removing dead code, writing missing tests &mdash; behind those explanations, making it a teaching tool as much as a dev tool</li>
+            <li>Garden health only changes when a verified code change actually lands and analysis re-runs</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Next.js</span>
+            <span class="pill">Vercel</span>
+            <span class="pill">GPT-5.6</span>
+            <span class="pill">Codex</span>
+          </div>
+          <p class="card-links">
+            <a href="https://coding-garden-brlf2kkis-code-garden.vercel.app" target="_blank" rel="noopener noreferrer">Live demo &rarr;</a>
+            <a href="https://github.com/liamnester97/coding-garden" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" aria-hidden="true"></div>
+          <h3>This website</h3>
+          <p class="meta">
+            <span class="pill pill--status pill--status-live">Live</span>
+          </p>
+          <p>My personal site &mdash; a hand-built, static portfolio covering my background, experience, projects, and resume.</p>
+          <ul>
+            <li>Static HTML/CSS, no framework or build step</li>
+            <li>Shared design system across pages: cards, pills, timeline, and section styling</li>
+            <li>Deployed via GitHub Pages</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">GitHub Pages</span>
+          </div>
+          <p class="card-links">
+            <a href="https://liamnester97.github.io" target="_blank" rel="noopener noreferrer">Live site &rarr;</a>
+            <a href="https://github.com/liamnester97/liamnester97.github.io" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+          </p>
+        </div>
       </section>
     </div>
   </main>
