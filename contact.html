@@ -298,8 +298,55 @@
     }
 
     .contact-page .site-footer { color: rgba(18, 21, 29, 0.56); }
-    .contact-page .site-footer .icon-link { border-color: var(--contact-line); color: var(--contact-ink); }
-    .contact-page .site-footer .icon-link:hover { color: #fff; background: var(--contact-orange); }
+    .contact-page .site-footer { padding-top: 42px; }
+    .contact-page .contact-footer-links {
+      gap: 26px;
+      margin-bottom: 8px;
+    }
+
+    .contact-page .contact-footer-links .icon-link {
+      position: relative;
+      width: 64px;
+      height: 64px;
+      border: 2px solid var(--contact-ink);
+      color: var(--contact-ink);
+      background: transparent;
+      box-shadow: 0 0 0 7px transparent, 0 0 0 8px var(--contact-line);
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .contact-page .contact-footer-links .icon-link::before {
+      content: "";
+      position: absolute;
+      inset: -8px;
+      border: 1px solid var(--contact-orange);
+      border-radius: 50%;
+      opacity: 0.45;
+      transform: scale(0.86);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .contact-page .contact-footer-links .icon-link svg {
+      position: relative;
+      z-index: 1;
+      width: 26px;
+      height: 26px;
+    }
+
+    .contact-page .contact-footer-links .icon-link:hover,
+    .contact-page .contact-footer-links .icon-link:focus-visible {
+      color: #fff;
+      border-color: var(--contact-orange);
+      background: var(--contact-orange);
+      box-shadow: 0 0 0 7px rgba(232, 110, 63, 0.14), 0 0 0 8px var(--contact-orange);
+      transform: translateY(-4px);
+    }
+
+    .contact-page .contact-footer-links .icon-link:hover::before,
+    .contact-page .contact-footer-links .icon-link:focus-visible::before {
+      opacity: 0.9;
+      transform: scale(1.08);
+    }
 
     @media (max-width: 720px) {
       .contact-hero { grid-template-columns: 1fr; gap: 54px; min-height: auto; padding: 68px 0 60px; }
@@ -317,6 +364,9 @@
       .contact-reasons { padding: 24px; }
       .contact-links { grid-template-columns: 1fr; gap: 0; }
       .contact-link { min-height: 52px; }
+      .contact-page .contact-footer-links { gap: 20px; }
+      .contact-page .contact-footer-links .icon-link { width: 58px; height: 58px; }
+      .contact-page .contact-footer-links .icon-link svg { width: 24px; height: 24px; }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -400,7 +450,7 @@
 
   <footer class="site-footer">
     <div class="wrap contact-shell">
-      <div class="icon-links icon-links--sm">
+      <div class="icon-links icon-links--sm contact-footer-links">
         <a class="icon-link" href="https://www.linkedin.com/in/liamnester/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
         </a>
