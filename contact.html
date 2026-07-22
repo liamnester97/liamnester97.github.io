@@ -20,57 +20,386 @@
   <meta name="twitter:image" content="https://liamnester97.github.io/assets/images/headshot.jpg" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-page {
+      --contact-ink: #12151d;
+      --contact-paper: #f0eee8;
+      --contact-orange: #e86e3f;
+      --contact-yellow: #f7c84b;
+      --contact-line: rgba(18, 21, 29, 0.16);
+      color: var(--contact-ink);
+      background: var(--contact-paper);
+      overflow: hidden;
+    }
+
+    .contact-page .site-header,
+    .contact-page .site-footer {
+      background: var(--contact-paper);
+      border-color: var(--contact-line);
+    }
+
+    .contact-page .brand,
+    .contact-page .main-nav a { color: var(--contact-ink); }
+    .contact-page .main-nav a:hover { background: rgba(232, 110, 63, 0.12); }
+    .contact-page .main-nav a.active { background: var(--contact-ink); }
+
+    .contact-page main { padding: 0 0 92px; }
+    .contact-shell { max-width: 1120px; }
+
+    .contact-hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+      gap: clamp(40px, 8vw, 112px);
+      align-items: end;
+      min-height: 520px;
+      padding: 88px 0 76px;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: -140px;
+      right: -80px;
+      width: 520px;
+      height: 520px;
+      border: 1px solid var(--contact-line);
+      border-radius: 50%;
+      box-shadow: 0 0 0 38px rgba(232, 110, 63, 0.05), 0 0 0 110px rgba(232, 110, 63, 0.035);
+    }
+
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 68px;
+      right: 172px;
+      width: 9px;
+      height: 9px;
+      background: var(--contact-orange);
+      border-radius: 50%;
+      box-shadow: 0 0 0 7px rgba(232, 110, 63, 0.15);
+    }
+
+    .contact-hero > * { position: relative; z-index: 1; }
+
+    .contact-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      color: var(--contact-orange);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contact-kicker::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--contact-orange);
+    }
+
+    .contact-title {
+      max-width: 760px;
+      margin: 0;
+      color: var(--contact-ink);
+      font-size: clamp(3.4rem, 8.4vw, 7.6rem);
+      font-weight: 800;
+      letter-spacing: -0.075em;
+      line-height: 0.9;
+    }
+
+    .contact-title em {
+      color: var(--contact-orange);
+      font-style: normal;
+    }
+
+    .contact-intro {
+      max-width: 510px;
+      margin: 28px 0 0;
+      color: rgba(18, 21, 29, 0.68);
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+      line-height: 1.65;
+    }
+
+    .contact-index {
+      align-self: start;
+      justify-self: end;
+      width: min(100%, 320px);
+      padding-top: 22px;
+      border-top: 1px solid var(--contact-ink);
+    }
+
+    .contact-index-label {
+      margin: 0 0 26px;
+      color: rgba(18, 21, 29, 0.52);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-index dl { margin: 0; }
+    .contact-index-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--contact-line);
+      font-size: 0.88rem;
+    }
+
+    .contact-index-row dt { color: rgba(18, 21, 29, 0.52); }
+    .contact-index-row dd { margin: 0; font-weight: 700; text-align: right; }
+
+    .contact-lower {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      gap: 24px;
+      padding-top: 28px;
+      border-top: 1px solid var(--contact-line);
+    }
+
+    .contact-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 288px;
+      padding: 30px;
+      color: #fff;
+      background: var(--contact-ink);
+      overflow: hidden;
+    }
+
+    .contact-card::after {
+      content: "↗";
+      position: absolute;
+      right: 25px;
+      bottom: 8px;
+      color: rgba(255, 255, 255, 0.12);
+      font-size: 8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .contact-card-label,
+    .contact-reasons-label {
+      margin: 0 0 24px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-card-label { color: var(--contact-yellow); }
+
+    .contact-email {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      width: fit-content;
+      max-width: 100%;
+      color: #fff;
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      overflow-wrap: anywhere;
+      text-decoration: none;
+    }
+
+    .contact-email::after {
+      content: "";
+      display: block;
+      height: 3px;
+      margin-top: 9px;
+      background: var(--contact-orange);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .contact-email:hover::after,
+    .contact-email:focus-visible::after { transform: scaleX(0.55); }
+
+    .contact-response {
+      position: relative;
+      z-index: 1;
+      max-width: 260px;
+      margin: 28px 0 0;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.88rem;
+    }
+
+    .contact-reasons {
+      padding: 30px;
+      border: 1px solid var(--contact-line);
+    }
+
+    .contact-reasons-label { color: var(--contact-orange); }
+    .contact-reasons ul { margin: 0; padding: 0; list-style: none; }
+
+    .contact-reasons li {
+      display: flex;
+      gap: 14px;
+      padding: 13px 0;
+      border-top: 1px solid var(--contact-line);
+      color: rgba(18, 21, 29, 0.72);
+      font-size: 0.94rem;
+    }
+
+    .contact-reasons li::before {
+      content: "0" counter(contact-reason);
+      counter-increment: contact-reason;
+      min-width: 20px;
+      color: var(--contact-orange);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .contact-reasons ul { counter-reset: contact-reason; }
+
+    .contact-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 58px;
+      padding: 0 16px;
+      color: var(--contact-ink);
+      border-bottom: 1px solid var(--contact-ink);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: color 160ms ease, background 160ms ease, padding 160ms ease;
+    }
+
+    .contact-link span:last-child { color: var(--contact-orange); font-size: 1.1rem; }
+    .contact-link:hover,
+    .contact-link:focus-visible { padding-left: 21px; color: #fff; background: var(--contact-orange); }
+    .contact-link:hover span:last-child,
+    .contact-link:focus-visible span:last-child { color: #fff; }
+
+    .contact-page a:focus-visible {
+      outline: 3px solid var(--contact-yellow);
+      outline-offset: 4px;
+    }
+
+    .contact-page .site-footer { color: rgba(18, 21, 29, 0.56); }
+    .contact-page .site-footer .icon-link { border-color: var(--contact-line); color: var(--contact-ink); }
+    .contact-page .site-footer .icon-link:hover { color: #fff; background: var(--contact-orange); }
+
+    @media (max-width: 720px) {
+      .contact-hero { grid-template-columns: 1fr; gap: 54px; min-height: auto; padding: 68px 0 60px; }
+      .contact-index { justify-self: start; width: min(100%, 430px); }
+      .contact-hero::before { top: 12px; right: -280px; }
+      .contact-hero::after { top: 82px; right: 110px; }
+      .contact-lower { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .contact-shell { padding-left: 20px; padding-right: 20px; }
+      .contact-hero { padding-top: 52px; }
+      .contact-title { font-size: clamp(3.1rem, 16vw, 4.8rem); }
+      .contact-card,
+      .contact-reasons { padding: 24px; }
+      .contact-links { grid-template-columns: 1fr; gap: 0; }
+      .contact-link { min-height: 52px; }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .contact-page { --contact-paper: #17191f; --contact-ink: #f1eee7; --contact-line: rgba(241, 238, 231, 0.18); }
+      .contact-intro,
+      .contact-index-row dt,
+      .contact-index-label,
+      .contact-reasons li { color: rgba(241, 238, 231, 0.65); }
+      .contact-card { background: #0e1015; }
+    }
+  </style>
 </head>
-<body>
+<body class="contact-page">
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap contact-shell">
       <a class="brand" href="index.html">Liam Nester</a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">About</a>
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="resume.html">Resume</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html" class="active" aria-current="page">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="wrap">
-      <p class="eyebrow">Contact</p>
-      <h1>Get in touch</h1>
-      <p class="lede">Based in Denver, CO. Whether it's a role, a project, or just talking shop about AI tooling &mdash; I'd love to hear from you and usually reply within a day or two.</p>
+    <div class="wrap contact-shell">
+      <section class="contact-hero" aria-labelledby="contact-title">
+        <div>
+          <p class="contact-kicker">Open channel / 01</p>
+          <h1 id="contact-title" class="contact-title">Let’s make something <em>move.</em></h1>
+          <p class="contact-intro">I’m always interested in thoughtful conversations about aerospace, project engineering, AI tooling, and the practical work of turning a complicated idea into something real.</p>
+        </div>
 
-      <section>
-        <h2 class="section-label">Reach out</h2>
-        <div class="card">
-          <a class="btn-primary" href="mailto:liammnester@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            liammnester@gmail.com
-          </a>
-          <p class="meta">Denver, CO &middot; usually replies within a day or two</p>
+        <aside class="contact-index" aria-label="Current contact details">
+          <p class="contact-index-label">Signal report</p>
+          <dl>
+            <div class="contact-index-row">
+              <dt>Location</dt>
+              <dd>Denver, CO</dd>
+            </div>
+            <div class="contact-index-row">
+              <dt>Best route</dt>
+              <dd>Email</dd>
+            </div>
+            <div class="contact-index-row">
+              <dt>Response</dt>
+              <dd>1–2 days</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="contact-lower" aria-label="Ways to connect">
+        <div class="contact-card">
+          <div>
+            <p class="contact-card-label">Primary transmission</p>
+            <a class="contact-email" href="mailto:liammnester@gmail.com">liammnester@gmail.com</a>
+          </div>
+          <p class="contact-response">Send a note about a role, a project, or a good question. I usually reply within a day or two.</p>
+        </div>
+
+        <div class="contact-reasons">
+          <p class="contact-reasons-label">Good reasons to write</p>
+          <ul>
+            <li>A role or collaboration worth exploring</li>
+            <li>A question about aerospace project work</li>
+            <li>AI tools, systems, or side projects</li>
+          </ul>
         </div>
       </section>
 
-      <section>
-        <h2 class="section-label">Elsewhere</h2>
-        <div class="icon-links">
-          <a class="icon-link" href="https://www.linkedin.com/in/liamnester/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          </a>
-          <a class="icon-link" href="https://github.com/liamnester97" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.4 7.86 10.94.57.1.79-.25.79-.55 0-.27-.01-1.15-.02-2.08-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.66.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-          </a>
-          <a class="icon-link" href="mailto:liammnester@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          </a>
-        </div>
-      </section>
+      <nav class="contact-links" aria-label="Other ways to connect">
+        <a class="contact-link" href="https://www.linkedin.com/in/liamnester/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span aria-hidden="true">↗</span></a>
+        <a class="contact-link" href="https://github.com/liamnester97" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span aria-hidden="true">↗</span></a>
+        <a class="contact-link" href="resume.html"><span>Resume</span><span aria-hidden="true">→</span></a>
+      </nav>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
+    <div class="wrap contact-shell">
       <div class="icon-links icon-links--sm">
         <a class="icon-link" href="https://www.linkedin.com/in/liamnester/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
