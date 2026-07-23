@@ -179,6 +179,63 @@ h1 {
   margin: 0;
 }
 
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button--primary {
+  color: #fff;
+  background: var(--accent-gradient);
+  box-shadow: 0 5px 14px rgba(59, 130, 246, 0.2);
+}
+
+.button--secondary {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button--primary:hover {
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.28);
+}
+
+.button--secondary:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+.resume-download {
+  margin: 24px 0 0;
+}
+
 @media (max-width: 560px) {
   .hero { gap: 20px; }
   .hero-photo { width: 84px; height: 84px; }
@@ -612,4 +669,6 @@ footer.site-footer .wrap {
 @media (max-width: 560px) {
   h1 { font-size: 1.9rem; }
   nav.main-nav { gap: 14px; }
+  .hero-actions { gap: 8px; }
+  .button { flex: 1 1 auto; }
 }
